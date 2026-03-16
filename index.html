@@ -23,14 +23,14 @@
         }
 
         .page {
-            width: 1280px;
+            width: 100%;
+            max-width: 1280px;
             min-height: 100vh;
             margin: 0 auto;
             background: #ffffff;
             display: grid;
             grid-template-columns: 360px 1fr;
             position: relative;
-            overflow: hidden;
         }
 
         /* ==================== SIDEBAR ==================== */
@@ -375,7 +375,6 @@
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1024px) {
             .page {
-                width: 100%;
                 grid-template-columns: 300px 1fr;
             }
 
@@ -426,6 +425,7 @@
 
             .contact-list li {
                 font-size: 14px;
+                word-break: break-word;
             }
 
             .lang-name {
@@ -482,8 +482,8 @@
             }
 
             .exp-content {
-                border-left: none;
-                padding-left: 0;
+                border-left: 2px solid #e2e8f0;
+                padding-left: 14px;
             }
 
             .exp-content::before {
@@ -492,7 +492,6 @@
 
             .exp-item.current .exp-content {
                 border-left: 3px solid #2563eb;
-                padding-left: 14px;
             }
 
             .exp-company {
