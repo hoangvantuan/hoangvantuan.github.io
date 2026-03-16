@@ -372,6 +372,224 @@
             border-top: 1px solid #f1f5f9;
         }
 
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .page {
+                width: 100%;
+                grid-template-columns: 300px 1fr;
+            }
+
+            .main {
+                padding: 36px 32px;
+            }
+
+            .exp-item {
+                grid-template-columns: 90px 1fr;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+
+            .avatar-section {
+                padding: 32px 24px 28px;
+            }
+
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .avatar-section h1 {
+                font-size: 22px;
+            }
+
+            .avatar-section .subtitle {
+                font-size: 14px;
+            }
+
+            .sidebar-section {
+                padding: 20px 24px;
+            }
+
+            .sidebar-title {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+
+            .contact-list li {
+                font-size: 14px;
+            }
+
+            .lang-name {
+                font-size: 15px;
+            }
+
+            .lang-level {
+                font-size: 13px;
+            }
+
+            .main {
+                padding: 28px 20px;
+                gap: 28px;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 16px 8px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+            }
+
+            .section-header h2 {
+                font-size: 17px;
+                letter-spacing: 1px;
+            }
+
+            .summary-text {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .exp-period {
+                font-size: 13px;
+            }
+
+            .exp-period br {
+                display: none;
+            }
+
+            .exp-content {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .exp-content::before {
+                display: none;
+            }
+
+            .exp-item.current .exp-content {
+                border-left: 3px solid #2563eb;
+                padding-left: 14px;
+            }
+
+            .exp-company {
+                font-size: 17px;
+            }
+
+            .exp-role {
+                font-size: 15px;
+            }
+
+            .exp-desc {
+                font-size: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .skill-group h4 {
+                font-size: 14px;
+            }
+
+            .skill-tag {
+                font-size: 14px;
+                padding: 4px 10px;
+            }
+
+            .footer-main {
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .avatar-section {
+                padding: 24px 16px 20px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .avatar-section h1 {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+
+            .sidebar-section {
+                padding: 16px;
+            }
+
+            .main {
+                padding: 20px 16px;
+                gap: 24px;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .stat-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 14px 16px;
+                text-align: left;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-label {
+                margin-top: 0;
+            }
+
+            .section-header h2 {
+                font-size: 15px;
+            }
+
+            .summary-text {
+                font-size: 14px;
+            }
+
+            .exp-desc {
+                font-size: 14px;
+            }
+
+            .skill-group {
+                padding: 14px 16px;
+            }
+        }
+
         @media print {
             body {
                 background: white;
