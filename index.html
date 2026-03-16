@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Chuyên Gia - Hoàng Văn Tuấn | AI Solutions & Transformation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #0f172a;
+            background: #f1f5f9;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: 1100px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ==================== SIDEBAR ==================== */
+        .sidebar {
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avatar-section {
+            padding: 48px 32px 36px;
+            text-align: center;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #2563eb;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .avatar-section h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .avatar-section .subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-top: 8px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .sidebar-section {
+            padding: 24px 32px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .sidebar-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #60a5fa;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .contact-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-list svg {
+            width: 16px;
+            height: 16px;
+            fill: #60a5fa;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .lang-item-sidebar {
+            margin-bottom: 16px;
+        }
+
+        .lang-item-sidebar:last-child {
+            margin-bottom: 0;
+        }
+
+        .lang-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .lang-level {
+            font-size: 15px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .lang-bar {
+            height: 5px;
+            background: #1e293b;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .lang-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+        }
+
+        .edu-sidebar .edu-period {
+            font-size: 15px;
+            color: #60a5fa;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .edu-sidebar .edu-school {
+            font-size: 17px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin: 4px 0;
+        }
+
+        .edu-sidebar .edu-program {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main {
+            padding: 48px 52px 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 22px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #2563eb;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #64748b;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0f172a;
+        }
+
+        .section-header svg {
+            width: 22px;
+            height: 22px;
+            fill: #2563eb;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .summary-text {
+            font-size: 18px;
+            color: #334155;
+            line-height: 1.8;
+        }
+
+        .summary-text strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* Experience */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 20px;
+        }
+
+        .exp-period {
+            font-size: 16px;
+            font-weight: 600;
+            color: #64748b;
+            padding-top: 2px;
+            line-height: 1.4;
+        }
+
+        .exp-item.current .exp-period {
+            color: #2563eb;
+        }
+
+        .exp-content {
+            padding-left: 16px;
+            border-left: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        .exp-item.current .exp-content {
+            border-left-color: #2563eb;
+        }
+
+        .exp-content::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            border: 2px solid #ffffff;
+        }
+
+        .exp-item.current .exp-content::before {
+            background: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .exp-company {
+            font-size: 19px;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .exp-role {
+            font-size: 17px;
+            font-weight: 500;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .exp-desc {
+            margin-top: 8px;
+            font-size: 17px;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .exp-desc ul {
+            padding-left: 16px;
+            margin: 0;
+        }
+
+        .exp-desc li {
+            margin-bottom: 3px;
+        }
+
+        .exp-desc li::marker {
+            color: #94a3b8;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .skill-group {
+            padding: 18px 20px;
+            border-radius: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-group h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e40af;
+            background: #dbeafe;
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+
+        .footer-main {
+            margin-top: auto;
+            text-align: right;
+            font-size: 15px;
+            color: #94a3b8;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="sidebar">
+            <div class="avatar-section">
+                <img class="avatar" src="./382d0ea0-96b9-48bc-83b4-491695fdbbe6_DSC_1786.JPG" alt="Hoàng Văn Tuấn">
+                <h1>Hoàng Văn Tuấn</h1>
+                <div class="subtitle">AI Solutions Architect<br>Tư Vấn & Đào Tạo Ứng Dụng AI<br>CTO "Tự Học Cùng AI"</div>
+            </div>
+
+            <!-- Liên Hệ -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Liên Hệ</div>
+                <ul class="contact-list">
+                    <li>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        0393 041 293
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        hoangtuanbka93@gmail.com
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        Hà Nội, Việt Nam
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                        </svg>
+                        <a href="https://www.tuhoc.ai.vn" target="_blank" style="color: #cbd5e1; text-decoration: none;">tuhoc.ai.vn</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+                        </svg>
+                        <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" style="color: #cbd5e1; text-decoration: none;">Group Tự Học Cùng AI</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Ngôn Ngữ -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Ngôn Ngữ</div>
+                <div class="lang-item-sidebar">
+                    <div class="lang-name">Tiếng Việt</div>
+                    <div class="lang-level">Bản ngữ</div>
+                    <div class="lang-bar">
+                        <div class="lang-bar-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="lang-item-sidebar">
+                    <div class="lang-name">Tiếng Nhật</div>
+                    <div class="lang-level">Thành thạo (N2+) – Kinh doanh</div>
+                    <div class="lang-bar">
+                        <div class="lang-bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="lang-item-sidebar">
+                    <div class="lang-name">Tiếng Anh</div>
+                    <div class="lang-level">Giao tiếp công việc</div>
+                    <div class="lang-bar">
+                        <div class="lang-bar-fill" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chứng Chỉ -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Chứng Chỉ</div>
+                <div class="edu-sidebar">
+                    <div class="edu-school">JLPT N2</div>
+                    <div class="edu-program">Năng lực Tiếng Nhật – Cấp độ Kinh doanh</div>
+                </div>
+            </div>
+
+            <!-- Học Vấn -->
+            <div class="sidebar-section">
+                <div class="sidebar-title">Học Vấn</div>
+                <div class="edu-sidebar">
+                    <div class="edu-period">2011 – 2016</div>
+                    <div class="edu-school">ĐH Bách Khoa Hà Nội</div>
+                    <div class="edu-program">Chương trình HEDSPI<br>Công nghệ Thông tin & Tiếng Nhật – Hợp tác Việt Nam & Nhật Bản</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN ==================== -->
+        <main class="main">
+
+            <!-- Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Năm kinh nghiệm IT</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Dự án đã triển khai</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Nhân sự đã quản lý</div>
+                </div>
+            </div>
+
+            <!-- Giới Thiệu -->
+            <div class="section">
+                <div class="section-header">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                    <h2>Giới Thiệu</h2>
+                </div>
+                <p class="summary-text">
+                    Chuyên gia công nghệ với hơn <strong>10 năm kinh nghiệm</strong> trong lĩnh vực phát triển phần mềm
+                    và outsourcing IT Việt – Nhật, đã quản lý <strong>30+ dự án</strong> với quy mô team lên đến <strong>50 người</strong>.
+                    Hiện tập trung vào <strong>tư vấn và triển khai giải pháp AI</strong> cho doanh nghiệp: xây dựng quy trình tự động hóa,
+                    tối ưu hiệu suất công việc bằng AI, và <strong>đào tạo ứng dụng AI</strong> cho các cấp quản lý, team leader, nhân viên và giáo viên.
+                    Kết hợp nền tảng kỹ thuật vững chắc từ <strong>HEDSPI (ĐH Bách Khoa Hà Nội)</strong> với kinh nghiệm thực chiến
+                    từ kỹ sư phần mềm đến Division Manager, cùng khả năng giao tiếp tiếng Nhật thành thạo (<strong>JLPT N2</strong>).
+                </p>
+            </div>
+
+            <!-- Kinh Nghiệm -->
+            <div class="section">
+                <div class="section-header">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+                    </svg>
+                    <h2>Kinh Nghiệm Làm Việc</h2>
+                </div>
+                <div class="exp-list">
+
+                    <div class="exp-item current">
+                        <div class="exp-period">2025 –<br>Hiện tại</div>
+                        <div class="exp-content">
+                            <div class="exp-company">Miichisoft Co., Ltd.</div>
+                            <div class="exp-role">Trưởng Phòng Bộ Phận Solution</div>
+                            <div class="exp-desc">
+                                <ul>
+                                    <li>Xây dựng team Solution chuyên triển khai giải pháp AI cho doanh nghiệp</li>
+                                    <li>Nghiên cứu và ứng dụng AI (Gemini, Claude, GPT) vào quy trình tự động hóa</li>
+                                    <li>Tư vấn giải pháp AI cho khách hàng Nhật Bản, thiết kế workflow tối ưu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item current">
+                        <div class="exp-period">2025 –<br>Hiện tại</div>
+                        <div class="exp-content">
+                            <div class="exp-company">Dự Án "Tự Học Cùng AI"</div>
+                            <div class="exp-role">Đồng Sáng Lập & CTO</div>
+                            <div class="exp-desc">
+                                <ul>
+                                    <li>Kiến trúc và phát triển nền tảng đào tạo ứng dụng AI cho người Việt</li>
+                                    <li>Xây dựng nội dung đào tạo AI cho quản lý, nhân viên và giáo viên</li>
+                                    <li>Phát triển cộng đồng học tập AI trên Facebook và blog chuyên ngành</li>
+                                    <li>Blog: <a href="https://www.tuhoc.ai.vn" target="_blank" style="color: #2563eb; text-decoration: none;">tuhoc.ai.vn</a> | Cộng đồng: <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" style="color: #2563eb; text-decoration: none;">Group Tự Học Cùng AI</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-period">2024 –<br>2025</div>
+                        <div class="exp-content">
+                            <div class="exp-company">AirCloset Co., Ltd.</div>
+                            <div class="exp-role">BrSE (Kỹ Sư Cầu Nối) kiêm Team Leader</div>
+                            <div class="exp-desc">
+                                <ul>
+                                    <li>Đảm nhiệm vai trò cầu nối giữa team phát triển Việt Nam và đối tác Nhật Bản</li>
+                                    <li>Quản lý team phát triển, đảm bảo chất lượng và tiến độ dự án</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-period">2019 –<br>2024</div>
+                        <div class="exp-content">
+                            <div class="exp-company">Miichisoft Co., Ltd.</div>
+                            <div class="exp-role">BrSE → Project Manager → Line Manager → Division Manager</div>
+                            <div class="exp-desc">
+                                <ul>
+                                    <li>Khởi đầu với vai trò BrSE, thăng tiến liên tục qua các vị trí quản lý</li>
+                                    <li>Quản lý team PM/BrSE với vai trò Line Manager</li>
+                                    <li>Điều hành bộ phận (Division Manager), quản lý nhiều dự án và nhân sự</li>
+                                    <li>Xây dựng quy trình làm việc và đào tạo nhân sự cho mảng offshore</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-period">2016 –<br>2019</div>
+                        <div class="exp-content">
+                            <div class="exp-company">Làm việc tại Nhật Bản</div>
+                            <div class="exp-role">Kỹ Sư Phần Mềm (Software Engineer)</div>
+                            <div class="exp-desc">
+                                <ul>
+                                    <li>Phát triển phần mềm trực tiếp tại Nhật Bản</li>
+                                    <li>Tích lũy kinh nghiệm làm việc trong môi trường IT Nhật Bản</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Kỹ Năng -->
+            <div class="section">
+                <div class="section-header">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                    </svg>
+                    <h2>Kỹ Năng Chuyên Môn</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h4>Quản Lý & Lãnh Đạo</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Team Building</span>
+                            <span class="skill-tag">Line Management</span>
+                            <span class="skill-tag">Division Management</span>
+                            <span class="skill-tag">Agile/Scrum</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Kỹ Thuật & Công Nghệ</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Software Engineering</span>
+                            <span class="skill-tag">AI Solutions</span>
+                            <span class="skill-tag">System Design</span>
+                            <span class="skill-tag">Solution Architecture</span>
+                            <span class="skill-tag">Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h4>BrSE & Offshore</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Bridge SE</span>
+                            <span class="skill-tag">Offshore Development</span>
+                            <span class="skill-tag">Client Communication</span>
+                            <span class="skill-tag">Requirement Analysis</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Ứng Dụng AI & Công Cụ</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Google AI (Gemini)</span>
+                            <span class="skill-tag">Claude (Anthropic)</span>
+                            <span class="skill-tag">AI Workflow Automation</span>
+                            <span class="skill-tag">Product Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-main">
+                Hồ sơ chuyên gia – Cập nhật tháng 03/2026 | Hà Nội, Việt Nam
+            </div>
+        </main>
+
+    </div>
+</body>
+
+</html>
