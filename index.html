@@ -4,27 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoàng Văn Tuấn | AI Solutions Architect</title>
+    <title>Hoàng Văn Tuấn | Kiến trúc sư giải pháp AI</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <meta name="description" content="Hoàng Văn Tuấn — 10 năm từ kỹ sư phần mềm đến điều hành, nay xây giải pháp AI giúp cá nhân và doanh nghiệp làm được nhiều hơn với ít nguồn lực hơn.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --accent-blue: #3b82f6;
-            --accent-cyan: #22d3ee;
-            --accent-amber: #f59e0b;
-            --accent-gradient: linear-gradient(135deg, #3b82f6, #22d3ee);
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-accent: rgba(59, 130, 246, 0.3);
-            --glass: rgba(22, 22, 31, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --paper: #faf6ef;
+            --paper-2: #f2ece1;
+            --paper-3: #ede5d7;
+            --ink: #211c17;
+            --ink-soft: #574f45;
+            --ink-mute: #8f877c;
+            --line: #e4dcce;
+            --line-strong: #d3c8b6;
+            --seal: #c0402b;
+            --seal-deep: #a5341f;
+            --seal-soft: rgba(192, 64, 43, 0.09);
+
+            --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            --maxw: 1180px;
+            --gutter: 40px;
         }
 
         * {
@@ -38,82 +42,56 @@
         }
 
         body {
-            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-            line-height: 1.6;
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.65;
+            font-weight: 400;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
             overflow-x: hidden;
         }
 
-        /* ==================== GRAIN OVERLAY ==================== */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        ::selection {
+            background: var(--seal);
+            color: var(--paper);
         }
 
-        /* ==================== ANIMATED BACKGROUND ==================== */
-        .bg-mesh {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
+        a {
+            color: inherit;
         }
 
-        .bg-mesh .orb {
-            position: absolute;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 var(--gutter);
+        }
+
+        /* ==================== SEAL (SIGNATURE) ==================== */
+        .seal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            animation: float 20s ease-in-out infinite;
+            border: 2px solid var(--seal);
+            color: var(--seal);
+            font-family: var(--serif);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            flex-shrink: 0;
         }
 
-        .bg-mesh .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: var(--accent-blue);
-            top: -200px;
-            right: -100px;
-            animation-delay: 0s;
-        }
-
-        .bg-mesh .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: var(--accent-cyan);
-            bottom: -150px;
-            left: -100px;
-            animation-delay: -7s;
-        }
-
-        .bg-mesh .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: var(--accent-amber);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: -14s;
-            opacity: 0.08;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -40px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(40px, 30px) scale(1.02); }
+        .seal-logo {
+            width: 42px;
+            height: 42px;
+            font-size: 15px;
+            transform: rotate(-6deg);
         }
 
         /* ==================== NAV ==================== */
@@ -123,64 +101,77 @@
             left: 0;
             right: 0;
             z-index: 100;
-            padding: 20px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
         }
 
         .nav.scrolled {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 14px 48px;
+            background: rgba(250, 246, 239, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line);
         }
 
-        .nav-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
+        .nav-inner {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 16px var(--gutter);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
             text-decoration: none;
-            letter-spacing: -0.5px;
         }
 
-        .nav-logo span {
-            color: var(--accent-blue);
+        .nav-logo-img {
+            height: 52px;
+            width: 52px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-brand-name {
+            font-family: var(--serif);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 30px;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 14px;
+            color: var(--ink-soft);
+            font-size: 13.5px;
             font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: color 0.3s;
+            letter-spacing: 0.2px;
             position: relative;
+            padding-bottom: 2px;
+            transition: color 0.25s;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
             left: 0;
+            bottom: -2px;
             width: 0;
-            height: 2px;
-            background: var(--accent-gradient);
+            height: 1.5px;
+            background: var(--seal);
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .nav-links a:hover {
-            color: var(--text-primary);
+            color: var(--ink);
         }
 
         .nav-links a:hover::after {
@@ -189,1450 +180,1397 @@
 
         /* ==================== HERO ==================== */
         .hero {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
+            padding: 150px 0 90px;
+        }
+
+        .hero-eyebrow {
             display: flex;
             align-items: center;
-            padding: 120px 48px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
+            gap: 14px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--ink-mute);
+            margin-bottom: 34px;
         }
 
-        .hero-grid {
+        .hero-eyebrow .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--seal);
+            flex-shrink: 0;
+        }
+
+        .hero-eyebrow .rule {
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+            max-width: 90px;
+        }
+
+        .hero-top {
             display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 80px;
-            align-items: center;
-            width: 100%;
+            grid-template-columns: 1fr 384px;
+            gap: 64px;
+            align-items: start;
         }
 
-        .hero-content {
-            max-width: 700px;
+        .hero-headline {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(2.7rem, 5.6vw, 4.5rem);
+            line-height: 1.04;
+            letter-spacing: -1.5px;
+            max-width: 16ch;
         }
 
-        .hero-badge {
+        .hero-headline em {
+            font-style: italic;
+            color: var(--seal);
+        }
+
+        .hero-sub {
+            margin-top: 30px;
+            max-width: 48ch;
+            font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+            line-height: 1.62;
+            color: var(--ink-soft);
+            font-weight: 400;
+        }
+
+        .hero-sub strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 100px;
-            font-size: 13px;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 2px;
+            font-family: var(--sans);
+            font-size: 14.5px;
             font-weight: 600;
-            color: var(--accent-blue);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s, color 0.25s, border-color 0.25s;
         }
 
-        .hero-badge .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-blue);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+        .btn-primary {
+            background: var(--ink);
+            color: var(--paper);
+            border: 1px solid var(--ink);
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+        .btn-primary:hover {
+            background: var(--seal);
+            border-color: var(--seal);
+            transform: translateY(-2px);
         }
 
-        .hero-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 50px;
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -3px;
-            margin-bottom: 24px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        .btn-ghost {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--line-strong);
         }
 
-        .hero-name .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .btn-ghost:hover {
+            border-color: var(--ink);
+            transform: translateY(-2px);
         }
 
-        .hero-title {
-            font-size: clamp(18px, 2.5vw, 24px);
-            color: var(--text-secondary);
-            font-weight: 400;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 550px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+        .btn .arrow {
+            transition: transform 0.25s;
         }
 
-        .hero-title strong {
-            color: var(--text-primary);
-            font-weight: 600;
+        .btn:hover .arrow {
+            transform: translateX(3px);
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 48px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-        }
-
-        .hero-stat {
+        /* Hero portrait + figures */
+        .hero-portrait {
             position: relative;
         }
 
-        .hero-stat::after {
-            content: '';
-            position: absolute;
-            right: -24px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 40px;
-            background: var(--border-subtle);
-        }
-
-        .hero-stat:last-child::after {
-            display: none;
-        }
-
-        .hero-stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            font-weight: 800;
-            line-height: 1;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-stat-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-avatar-wrapper {
+        .hero-portrait-frame {
             position: relative;
-            opacity: 0;
-            transform: translateY(40px) scale(0.9);
-            animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-        }
-
-        .hero-avatar-glow {
-            position: absolute;
-            inset: -20px;
-            background: var(--accent-gradient);
-            border-radius: 32px;
-            opacity: 0.2;
-            filter: blur(40px);
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.2; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(1.05); }
-        }
-
-        .hero-avatar {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 3/4;
-            border-radius: 24px;
+            aspect-ratio: 4 / 5;
             overflow: hidden;
-            border: 2px solid var(--glass-border);
+            background: var(--paper-2);
+            border: 1px solid var(--line);
         }
 
-        .hero-avatar img {
+        .hero-portrait-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: grayscale(0.18) contrast(1.02);
         }
 
-        .hero-avatar-overlay {
+        .hero-portrait-cap {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(transparent, rgba(10, 10, 15, 0.9));
-        }
-
-        @keyframes revealUp {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* ==================== SECTIONS ==================== */
-        .content {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 48px;
-        }
-
-        .section {
-            padding: 100px 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent-blue);
+            left: 14px;
+            bottom: 14px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
+            color: var(--paper);
+            background: rgba(33, 28, 23, 0.72);
+            padding: 6px 12px;
+            font-weight: 500;
         }
 
-        .section-label::before {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--accent-blue);
+        .hero-figures {
+            margin-top: 72px;
+            border-top: 1px solid var(--line);
+            padding-top: 38px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 720px;
         }
 
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(32px, 5vw, 52px);
-            font-weight: 800;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            margin-bottom: 60px;
+        .figure {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .figure-num {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .figure-num .plus {
+            color: var(--seal);
+        }
+
+        .figure-label {
+            margin-top: 10px;
+            font-size: 12.5px;
+            line-height: 1.4;
+            color: var(--ink-mute);
+            font-weight: 500;
+            max-width: 15ch;
+        }
+
+        /* ==================== SECTION SCAFFOLD ==================== */
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        .band {
+            padding: 96px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            margin-bottom: 52px;
+        }
+
+        .sec-index {
+            font-family: var(--serif);
+            font-size: 14px;
+            color: var(--seal);
+            font-weight: 600;
+            font-feature-settings: "tnum";
+            padding-top: 4px;
+        }
+
+        .sec-title {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: clamp(2rem, 3.8vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -1px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--ink-mute);
+            margin-bottom: 12px;
         }
 
         /* ==================== ABOUT ==================== */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 72px;
+            align-items: start;
         }
 
-        .about-text {
-            font-size: 18px;
-            color: var(--text-secondary);
-            line-height: 1.9;
-        }
-
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .about-card {
-            padding: 28px 24px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .about-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-        }
-
-        .about-card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            font-size: 20px;
-        }
-
-        .about-card-icon.blue {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-        }
-
-        .about-card-icon.cyan {
-            background: rgba(34, 211, 238, 0.1);
-            color: var(--accent-cyan);
-        }
-
-        .about-card-icon.amber {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--accent-amber);
-        }
-
-        .about-card-icon.green {
-            background: rgba(34, 197, 94, 0.1);
-            color: #22c55e;
-        }
-
-        .about-card h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 6px;
+        .about-lead {
+            font-family: var(--serif);
+            font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+            line-height: 1.42;
+            font-weight: 400;
             letter-spacing: -0.3px;
+            margin-bottom: 28px;
         }
 
-        .about-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
+        .about-body p {
+            color: var(--ink-soft);
+            font-size: 1.02rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
         }
 
-        /* ==================== EXPERIENCE ==================== */
-        .exp-timeline {
-            position: relative;
-            padding-left: 48px;
-        }
-
-        .exp-timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent-blue), var(--border-subtle) 30%, var(--border-subtle) 70%, transparent);
-        }
-
-        .exp-entry {
-            position: relative;
-            margin-bottom: 56px;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .exp-entry.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .exp-entry:last-child {
+        .about-body p:last-child {
             margin-bottom: 0;
         }
 
-        .exp-dot {
-            position: absolute;
-            left: -48px;
-            top: 6px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--bg-primary);
-            border: 3px solid var(--text-muted);
-            z-index: 1;
-            transition: all 0.3s;
+        .about-body strong {
+            color: var(--ink);
+            font-weight: 600;
         }
 
-        .exp-entry.current .exp-dot {
-            border-color: var(--accent-blue);
-            background: var(--accent-blue);
-            box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.15), 0 0 20px rgba(59, 130, 246, 0.3);
+        .creed {
+            background: var(--paper-2);
+            border: 1px solid var(--line);
+            padding: 34px 32px;
+            position: relative;
         }
 
-        .exp-date {
+        .creed-mark {
+            font-family: var(--serif);
+            font-size: 58px;
+            line-height: 0.5;
+            color: var(--seal);
+            opacity: 0.5;
+            height: 30px;
+            display: block;
+        }
+
+        .creed-text {
+            font-family: var(--serif);
+            font-size: 1.32rem;
+            line-height: 1.5;
+            font-style: italic;
+            letter-spacing: -0.2px;
+            margin: 8px 0 22px;
+        }
+
+        .creed-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            border-top: 1px solid var(--line);
+            padding-top: 22px;
+        }
+
+        .creed-list li {
+            display: flex;
+            gap: 12px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: var(--ink-soft);
+        }
+
+        .creed-list li b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .creed-list .tick {
+            color: var(--seal);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .tl {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tl-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 36px;
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            transition: none;
+        }
+
+        .tl-row:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .tl-when {
             font-size: 13px;
             font-weight: 600;
-            color: var(--accent-blue);
+            letter-spacing: 1px;
+            color: var(--ink-mute);
+            padding-top: 5px;
+        }
+
+        .tl-row.now .tl-when {
+            color: var(--seal);
+        }
+
+        .tl-when .badge {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 10.5px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            color: var(--seal);
+            border: 1px solid var(--seal);
+            padding: 3px 9px;
+            border-radius: 100px;
         }
 
-        .exp-entry:not(.current) .exp-date {
-            color: var(--text-muted);
+        .tl-company {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
         }
 
-        .exp-card {
-            padding: 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        .tl-company a {
+            text-decoration: none;
+            border-bottom: 1px solid var(--line-strong);
+            transition: border-color 0.25s;
         }
 
-        .exp-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
+        .tl-company a:hover {
+            border-color: var(--seal);
         }
 
-        .exp-entry.current .exp-card {
-            border-color: rgba(59, 130, 246, 0.2);
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), var(--bg-card));
+        .tl-role {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--seal);
+            margin: 6px 0 4px;
         }
 
-        .exp-company {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 4px;
-        }
-
-        .exp-role {
-            font-size: 15px;
-            color: var(--text-muted);
-            font-weight: 500;
+        .tl-meta {
+            font-size: 12.5px;
+            color: var(--ink-mute);
+            font-style: italic;
             margin-bottom: 16px;
+            line-height: 1.5;
         }
 
-        .exp-desc {
+        .tl-desc {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .exp-desc li {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            padding-left: 20px;
+        .tl-desc li {
             position: relative;
+            padding-left: 20px;
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            line-height: 1.6;
         }
 
-        .exp-desc li::before {
+        .tl-desc li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 10px;
-            width: 6px;
+            top: 11px;
+            width: 8px;
             height: 1px;
-            background: var(--accent-blue);
+            background: var(--seal);
         }
 
-        /* ==================== SKILLS ==================== */
-        .skills-container {
+        .tl-note {
+            margin-top: 14px;
+            font-size: 12.5px;
+            color: var(--ink-mute);
+            font-style: italic;
+        }
+
+        .tl-links {
+            margin-top: 14px;
+            font-size: 13.5px;
+        }
+
+        .tl-links a {
+            color: var(--seal);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .tl-links a:hover {
+            border-color: var(--seal);
+        }
+
+        /* ==================== VALUE ==================== */
+        .value-intro {
+            max-width: 60ch;
+            font-size: 1.08rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .value-split {
+            margin-top: 46px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--line);
         }
 
-        .skill-card {
-            padding: 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(30px);
+        .vcol {
+            padding: 40px 38px;
         }
 
-        .skill-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .vcol + .vcol {
+            border-left: 1px solid var(--line);
         }
 
-        .skill-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
+        .vcol-done {
+            background: var(--paper-2);
         }
 
-        .skill-card-header {
-            display: flex;
+        .vcol-tag {
+            display: inline-flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-
-        .skill-card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .skill-card h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            font-size: 13px;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: var(--border-accent);
-            color: var(--accent-blue);
-        }
-
-        /* ==================== CONTACT / SIDEBAR INFO ==================== */
-        .info-section {
-            padding: 100px 0;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .info-card {
-            padding: 36px 28px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .info-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .info-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-        }
-
-        .info-card-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-blue);
+            gap: 9px;
+            font-size: 11.5px;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-item svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--text-muted);
-            flex-shrink: 0;
-        }
-
-        .contact-item a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Language bars */
-        .lang-item {
-            margin-bottom: 18px;
-        }
-
-        .lang-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .lang-header {
-            display: flex;
-            justify-content: space-between;
+            color: var(--ink-mute);
             margin-bottom: 8px;
         }
 
-        .lang-name {
-            font-size: 14px;
+        .vcol-tag .sq {
+            width: 8px;
+            height: 8px;
+            background: var(--seal);
+        }
+
+        .vcol-tag .sq.hollow {
+            background: transparent;
+            border: 1.5px solid var(--seal);
+        }
+
+        .vcol h3 {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 500;
+            letter-spacing: -0.4px;
+            margin-bottom: 6px;
+        }
+
+        .vcol-note {
+            font-size: 13.5px;
+            color: var(--ink-mute);
+            line-height: 1.55;
+            margin-bottom: 26px;
+        }
+
+        .done-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .done-item {
+            padding: 16px 0;
+            border-top: 1px solid var(--line-strong);
+        }
+
+        .done-item:first-child {
+            border-top: none;
+            padding-top: 4px;
+        }
+
+        .done-item h4 {
+            font-size: 15px;
             font-weight: 600;
-            color: var(--text-primary);
+            margin-bottom: 3px;
         }
 
-        .lang-level {
+        .done-item p {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+        }
+
+        .offer-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .offer-item {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 14px;
+        }
+
+        .offer-idx {
+            font-family: var(--serif);
+            font-size: 14px;
+            color: var(--seal);
+            font-weight: 600;
+            padding-top: 2px;
+        }
+
+        .offer-item h4 {
+            font-size: 15.5px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .offer-item p {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        .offer-item .proof {
+            display: block;
+            margin-top: 7px;
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--seal-deep);
+            font-weight: 500;
         }
 
-        .lang-bar {
-            height: 4px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 4px;
-            overflow: hidden;
+        .offer-item .proof::before {
+            content: '↳ ';
         }
 
-        .lang-bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            background: var(--accent-gradient);
-            transform-origin: left;
-            transform: scaleX(0);
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        .offer-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 13px;
+            padding: 8px 15px;
+            border: 1px solid var(--seal);
+            border-radius: 2px;
+            color: var(--seal);
+            font-size: 12.5px;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            transition: background 0.25s, color 0.25s, transform 0.25s;
         }
 
-        .lang-bar-fill.animate {
-            transform: scaleX(1);
+        .offer-cta:hover {
+            background: var(--seal);
+            color: var(--paper);
+            transform: translateY(-1px);
         }
 
-        /* Education */
-        .edu-item {
+        .offer-cta .arrow {
+            transition: transform 0.25s;
+        }
+
+        .offer-cta:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact {
+            padding: 100px 0;
+            border-top: 1px solid var(--line);
+            background: var(--paper-2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .contact-head {
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4vw, 3.2rem);
+            font-weight: 500;
+            line-height: 1.06;
+            letter-spacing: -1px;
+            margin-bottom: 22px;
+        }
+
+        .contact-head em {
+            font-style: italic;
+            color: var(--seal);
+        }
+
+        .contact-copy {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            max-width: 44ch;
+            margin-bottom: 30px;
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            padding: 32px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 0;
+            border-top: 1px solid var(--line);
+            font-size: 14.5px;
+        }
+
+        .contact-list li:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .contact-list li:last-child {
+            padding-bottom: 0;
+        }
+
+        .contact-list .ci-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ink-mute);
+            width: 74px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        .contact-list a,
+        .contact-list span.ci-val {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .contact-list a:hover {
+            color: var(--seal);
+            border-color: var(--seal);
+        }
+
+        /* ==================== SIDE INFO (lang / edu) ==================== */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--line);
+            margin-top: 46px;
+        }
+
+        .meta-cell {
+            padding: 30px 30px;
+        }
+
+        .meta-cell + .meta-cell {
+            border-left: 1px solid var(--line);
+        }
+
+        .meta-cell h4 {
+            font-size: 11.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ink-mute);
+            margin-bottom: 20px;
+        }
+
+        .lang-row {
             margin-bottom: 16px;
         }
 
-        .edu-item:last-child {
+        .lang-row:last-child {
             margin-bottom: 0;
+        }
+
+        .lang-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 7px;
+        }
+
+        .lang-name {
+            font-size: 14.5px;
+            font-weight: 600;
+        }
+
+        .lang-lvl {
+            font-size: 11.5px;
+            color: var(--ink-mute);
+        }
+
+        .lang-track {
+            height: 3px;
+            background: var(--paper-3);
+            overflow: hidden;
+        }
+
+        .lang-fill {
+            height: 100%;
+            background: var(--seal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .edu-period {
             font-size: 12px;
             font-weight: 600;
-            color: var(--accent-blue);
-            letter-spacing: 1px;
+            color: var(--seal);
+            letter-spacing: 0.5px;
         }
 
         .edu-school {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 4px 0;
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 5px 0;
         }
 
-        .edu-program {
+        .edu-prog {
             font-size: 13px;
-            color: var(--text-muted);
+            color: var(--ink-mute);
             line-height: 1.5;
         }
 
-        .cert-badge {
-            display: inline-flex;
+        .cert {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 10px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
         }
 
-        .cert-badge-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-amber);
-        }
-
-        .cert-badge-desc {
+        .cert .seal {
+            width: 40px;
+            height: 40px;
             font-size: 13px;
-            color: var(--text-muted);
+            transform: rotate(-6deg);
+        }
+
+        .cert-name {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .cert-desc {
+            font-size: 12px;
+            color: var(--ink-mute);
         }
 
         /* ==================== FOOTER ==================== */
         .footer {
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid var(--border-subtle);
-            padding: 40px 48px;
-            max-width: 1400px;
+            border-top: 1px solid var(--line);
+            padding: 34px 0;
+        }
+
+        .footer-inner {
+            max-width: var(--maxw);
             margin: 0 auto;
+            padding: 0 var(--gutter);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .footer-text {
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 12.5px;
+            color: var(--ink-mute);
         }
 
         .footer-links {
             display: flex;
-            gap: 24px;
+            gap: 22px;
         }
 
         .footer-links a {
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 12.5px;
+            color: var(--ink-soft);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--accent-blue);
+            color: var(--seal);
         }
 
-        /* ==================== SCROLL INDICATOR ==================== */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+        /* ==================== REVEAL ==================== */
+        .reveal {
             opacity: 0;
-            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+            transform: translateY(22px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .scroll-indicator span {
-            font-size: 11px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .reveal.in {
+            opacity: 1;
+            transform: none;
         }
 
-        .scroll-line {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(180deg, var(--accent-blue), transparent);
-            animation: scrollDown 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollDown {
-            0% { transform: scaleY(0); transform-origin: top; }
-            50% { transform: scaleY(1); transform-origin: top; }
-            51% { transform: scaleY(1); transform-origin: bottom; }
-            100% { transform: scaleY(0); transform-origin: bottom; }
-        }
+        .r1 { transition-delay: 0.08s; }
+        .r2 { transition-delay: 0.16s; }
+        .r3 { transition-delay: 0.24s; }
 
         /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 1024px) {
-            .hero {
-                padding: 100px 32px 60px;
-            }
+        @media (max-width: 940px) {
+            :root { --gutter: 28px; }
 
-            .hero-grid {
-                grid-template-columns: 1fr 300px;
-                gap: 48px;
-            }
-
-            .content {
-                padding: 0 32px;
-            }
-
-            .nav {
-                padding: 16px 32px;
-            }
-
-            .nav.scrolled {
-                padding: 12px 32px;
-            }
-
-            .about-grid {
+            .hero-top {
+                grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .info-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
+            .hero-portrait {
+                max-width: 320px;
             }
 
-            .footer {
-                padding: 32px;
+            .hero-figures {
+                margin-top: 52px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .value-split {
+                grid-template-columns: 1fr;
+            }
+
+            .vcol + .vcol {
+                border-left: none;
+                border-top: 1px solid var(--line);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-cell + .meta-cell {
+                border-left: none;
+                border-top: 1px solid var(--line);
             }
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                padding: 100px 24px 40px;
-                min-height: auto;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-avatar-wrapper {
-                max-width: 280px;
-                margin: 0 auto;
-                order: -1;
-            }
-
-            .hero-stats {
-                gap: 24px;
-                flex-wrap: wrap;
-            }
-
-            .hero-stat::after {
-                right: -12px;
-                height: 30px;
-            }
-
-            .hero-stat-number {
-                font-size: 32px;
-            }
-
-            .content {
-                padding: 0 24px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                margin-bottom: 40px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .about-cards {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .nav {
-                padding: 14px 24px;
-            }
-
-            .nav.scrolled {
-                padding: 10px 24px;
-            }
-
+        @media (max-width: 620px) {
             .nav-links {
                 display: none;
             }
 
-            .footer {
-                padding: 24px;
-                flex-direction: column;
+            .hero {
+                padding: 128px 0 70px;
+            }
+
+            .hero-figures {
+                margin-top: 44px;
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .figure {
+                flex-direction: row;
+                align-items: baseline;
                 gap: 16px;
-                text-align: center;
             }
 
-            .exp-timeline {
-                padding-left: 32px;
+            .figure-label {
+                max-width: none;
+                margin-top: 0;
+                align-self: center;
             }
 
-            .exp-dot {
-                left: -32px;
-                width: 12px;
-                height: 12px;
+            .band {
+                padding: 70px 0;
             }
 
-            .exp-timeline::before {
-                left: 5px;
+            .tl-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
 
-            .exp-card {
-                padding: 24px;
+            .tl-when .badge {
+                margin-top: 0;
+                margin-left: 10px;
             }
 
-            .exp-company {
-                font-size: 18px;
+            .vcol {
+                padding: 32px 26px;
+            }
+
+            .contact {
+                padding: 72px 0;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero {
-                padding: 80px 16px 32px;
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
             }
 
-            .hero-name {
-                letter-spacing: -2px;
+            .reveal {
+                opacity: 1;
+                transform: none;
             }
 
-            .hero-stats {
-                gap: 20px;
-            }
-
-            .hero-stat::after {
-                display: none;
-            }
-
-            .content {
-                padding: 0 16px;
-            }
-
-            .section {
-                padding: 48px 0;
-            }
-
-            .about-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .exp-card {
-                padding: 20px;
-            }
-
-            .skill-card {
-                padding: 24px;
-            }
-
-            .info-card {
-                padding: 24px 20px;
-            }
-
-            .footer {
-                padding: 20px 16px;
-            }
-
-            .nav {
-                padding: 12px 16px;
+            .lang-fill {
+                transform: scaleX(1) !important;
             }
         }
 
         @media print {
-            body {
-                background: white;
-                color: #000;
-            }
-
-            .bg-mesh,
-            .nav,
-            .scroll-indicator,
-            body::after {
-                display: none;
-            }
-
-            .section,
-            .info-section {
-                border-color: #ddd;
-            }
+            body { background: #fff; color: #000; }
+            .nav, .hero-actions, .contact-actions { display: none; }
+            .band, .contact, .footer { border-color: #ccc; }
+            .value-split, .meta-grid, .contact-card, .creed { border-color: #ccc; }
         }
-
-        /* ==================== ANIMATION UTILITIES ==================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
     </style>
 </head>
 
 <body>
 
-    <!-- Animated Background -->
-    <div class="bg-mesh">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
-
-    <!-- Navigation -->
+    <!-- NAV -->
     <nav class="nav" id="nav">
-        <a href="#" class="nav-logo">HVT<span>.</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">Giới thiệu</a></li>
-            <li><a href="#experience">Kinh nghiệm</a></li>
-            <li><a href="#skills">Kỹ năng</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-        </ul>
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand" aria-label="Hoàng Văn Tuấn — OnTheRunWay">
+                <img src="./logo.png" alt="OnTheRunWay" class="nav-logo-img">
+                <span class="nav-brand-name">Hoàng Văn Tuấn</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">Con người</a></li>
+                <li><a href="#journey">Hành trình</a></li>
+                <li><a href="#value">Giá trị</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <div class="pulse"></div>
-                    Sẵn sàng tư vấn & hợp tác
+    <!-- HERO -->
+    <header class="hero" id="top">
+        <div class="wrap">
+            <div class="hero-eyebrow reveal">
+                <span class="dot"></span>
+                Kiến trúc sư giải pháp AI
+                <span class="rule"></span>
+                Hà Nội, Việt Nam
+            </div>
+
+            <div class="hero-top">
+                <div class="hero-main">
+                    <h1 class="hero-headline reveal r1">
+                        Cùng một nguồn lực, <em>làm được nhiều hơn</em> nhờ AI.
+                    </h1>
+                    <p class="hero-sub reveal r2">
+                        Tôi là <strong>Hoàng Văn Tuấn</strong>. Mười năm qua tôi đi từ những dòng code đầu tiên đến điều hành cả một bộ phận. Giờ tôi dành thời gian cho một việc: đưa AI vào công việc thật, để mỗi người bớt phần việc lặp lại và có thêm chỗ cho những việc đáng làm hơn.
+                    </p>
+                    <div class="hero-actions reveal r3">
+                        <a href="#contact" class="btn btn-primary">Liên hệ với tôi <span class="arrow">→</span></a>
+                        <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" rel="noopener" class="btn btn-ghost">Tham gia cộng đồng Tự Học Cùng AI</a>
+                    </div>
                 </div>
-                <h1 class="hero-name">
-                    Hoàng Văn <span class="gradient-text">Tuấn</span>
-                </h1>
-                <p class="hero-title">
-                    <strong>AI Solutions Architect</strong> — Giúp cá nhân và doanh nghiệp ứng dụng AI vào công việc thực tế, từ tư vấn chiến lược đến triển khai sản phẩm.
-                </p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number" data-count="10">0</div>
-                        <div class="hero-stat-label">Năm kinh nghiệm</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number" data-count="30">0</div>
-                        <div class="hero-stat-label">Dự án triển khai</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number" data-count="50">0</div>
-                        <div class="hero-stat-label">Nhân sự quản lý</div>
+                <div class="hero-portrait reveal r2">
+                    <div class="hero-portrait-frame">
+                        <img src="./382d0ea0-96b9-48bc-83b4-491695fdbbe6_DSC_1786.JPG" alt="Chân dung Hoàng Văn Tuấn">
+                        <span class="hero-portrait-cap">Hoàng Văn Tuấn</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-avatar-wrapper">
-                <div class="hero-avatar-glow"></div>
-                <div class="hero-avatar">
-                    <img src="./382d0ea0-96b9-48bc-83b4-491695fdbbe6_DSC_1786.JPG" alt="Hoàng Văn Tuấn">
-                    <div class="hero-avatar-overlay"></div>
+
+            <div class="hero-figures reveal">
+                <div class="figure">
+                    <span class="figure-num">10<span class="plus">+</span></span>
+                    <span class="figure-label">Năm trong ngành công nghệ</span>
+                </div>
+                <div class="figure">
+                    <span class="figure-num">30<span class="plus">+</span></span>
+                    <span class="figure-label">Dự án đã tham gia, dẫn dắt</span>
+                </div>
+                <div class="figure">
+                    <span class="figure-num">50<span class="plus">+</span></span>
+                    <span class="figure-label">Nhân sự từng quản lý</span>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Cuộn xuống</span>
-            <div class="scroll-line"></div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="band" id="about">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="sec-index">01</span>
+                <div>
+                    <div class="eyebrow">Con người</div>
+                    <h2 class="sec-title">Tôi là ai, và điều gì<br>đưa tôi đến với AI</h2>
+                </div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-col reveal r1">
+                    <p class="about-lead">
+                        Trước khi làm về AI, tôi đã có mười năm trong nghề: viết code, chịu trách nhiệm về chất lượng sản phẩm, rồi dẫn dắt con người.
+                    </p>
+                    <div class="about-body">
+                        <p>
+                            Hành trình của tôi đi qua từng nấc: <strong>kỹ sư phần mềm → BrSE → Project Manager → Line Manager → Division Manager</strong>, có giai đoạn leo bốn cấp quản lý trong năm năm. Tôi từng chịu trách nhiệm cho hệ thống phục vụ <strong>8 triệu người dùng</strong>, và điều hành đội ngũ <strong>hơn 50 người</strong> qua nhiều lớp quản lý.
+                        </p>
+                        <p>
+                            Nền tảng kỹ thuật đến từ chương trình <strong>HEDSPI, Đại học Bách Khoa Hà Nội</strong> (Công nghệ thông tin và tiếng Nhật). Nhiều năm làm cầu nối Việt, Nhật cho tôi một thói quen: hiểu sâu công nghệ, nhưng luôn nói lại được bằng ngôn ngữ của người dùng.
+                        </p>
+                        <p>
+                            Giờ tôi tập trung vào việc <strong>đưa AI vào công việc thật</strong>: giúp một quy trình chạy nhanh hơn, một đội nhỏ làm được việc của cả đội lớn.
+                        </p>
+                    </div>
+                </div>
+
+                <aside class="creed reveal r2">
+                    <span class="creed-mark">“</span>
+                    <p class="creed-text">Công nghệ chỉ có giá trị khi giải quyết được việc thật, của người thật.</p>
+                    <ul class="creed-list">
+                        <li><span class="tick">—</span><span><b>Bắt đầu từ bài toán của bạn,</b> rồi mới đến công cụ.</span></li>
+                        <li><span class="tick">—</span><span><b>Làm một bản nhỏ chạy được trước,</b> thấy hiệu quả rồi mới mở rộng.</span></li>
+                        <li><span class="tick">—</span><span><b>Bàn giao để đội bạn tự vận hành,</b> không phải để phụ thuộc vào tôi.</span></li>
+                    </ul>
+                </aside>
+            </div>
         </div>
     </section>
 
-    <div class="content">
-
-        <!-- About Section -->
-        <section class="section" id="about">
-            <div class="reveal">
-                <div class="section-label">Giới thiệu</div>
-                <h2 class="section-title">Từ kỹ sư phần mềm<br>đến kiến trúc sư AI</h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-text reveal reveal-delay-1">
-                    Với hơn <strong>10 năm kinh nghiệm</strong> trong ngành công nghệ, tôi đã đi từ kỹ sư phần mềm, Project Manager đến <strong>Division Manager</strong> quản lý 50+ nhân sự và 30+ dự án đa lĩnh vực.
-                    <br><br>
-                    Hiện tại, tôi tập trung vào lĩnh vực mà mình tin sẽ thay đổi cách mọi người làm việc: <strong>ứng dụng AI vào thực tế</strong>. Từ thiết kế workflow tự động hóa cho doanh nghiệp, đến đào tạo AI cho cá nhân, quản lý và nhân viên — mục tiêu là giúp bạn <strong>làm được nhiều hơn với ít nguồn lực hơn</strong>.
-                    <br><br>
-                    Nền tảng kỹ thuật vững chắc từ <strong>HEDSPI (ĐH Bách Khoa Hà Nội)</strong>, kết hợp kinh nghiệm thực chiến tại nhiều công ty công nghệ, cho phép tôi vừa hiểu sâu công nghệ, vừa nắm bắt nhu cầu thực tế của người dùng.
-                </div>
-                <div class="about-cards reveal reveal-delay-2">
-                    <div class="about-card">
-                        <div class="about-card-icon blue">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <h4>AI Solutions</h4>
-                        <p>Thiết kế và triển khai workflow AI — từ PoC đến production cho doanh nghiệp</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="about-card-icon cyan">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <h4>Team Leader</h4>
-                        <p>Điều hành team 50+ người qua nhiều cấp quản lý, từ PM đến Division Manager</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="about-card-icon amber">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h4>Giao Tiếp Đa Văn Hóa</h4>
-                        <p>Kinh nghiệm làm việc quốc tế, kết nối hiệu quả giữa team kỹ thuật và khách hàng</p>
-                    </div>
-                    <div class="about-card">
-                        <div class="about-card-icon green">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                        </div>
-                        <h4>Đào Tạo AI</h4>
-                        <p>Đồng sáng lập "Tự Học Cùng AI" — đào tạo AI thực chiến cho người Việt</p>
-                    </div>
+    <!-- JOURNEY -->
+    <section class="band" id="journey">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="sec-index">02</span>
+                <div>
+                    <div class="eyebrow">Hành trình</div>
+                    <h2 class="sec-title">Mười năm xây dựng<br>và điều hành</h2>
                 </div>
             </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section class="section" id="experience">
-            <div class="reveal">
-                <div class="section-label">Hành trình</div>
-                <h2 class="section-title">10 năm xây dựng<br>và điều hành dự án công nghệ</h2>
-            </div>
-            <div class="exp-timeline">
-
-                <div class="exp-entry current">
-                    <div class="exp-dot"></div>
-                    <div class="exp-date">2025 – Hiện tại</div>
-                    <div class="exp-card">
-                        <div class="exp-company"><a href="https://miichisoft.com/en/homepage/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">Miichisoft Co., Ltd.</a></div>
-                        <div class="exp-role">Trưởng Phòng Solution</div>
-                        <div style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 8px; font-style: italic;">Công ty giải pháp IT | AWS Consulting Partner | ISO 27001 & 9001 | 200+ nhân sự</div>
-                        <ul class="exp-desc">
-                            <li>Thành lập và dẫn dắt team Solution — chuyên triển khai giải pháp AI cho khách hàng doanh nghiệp</li>
-                            <li>Nghiên cứu, ứng dụng Gemini, Claude, GPT vào quy trình tự động hóa nội bộ và cho khách hàng</li>
-                            <li>Tư vấn trực tiếp cho khách hàng: phân tích bài toán, thiết kế workflow AI phù hợp</li>
-                            <li>Ra mắt sản phẩm AI Co-Creation (Dify, GenAI PoC) và AI+ Solutions (Meet AI+, AIDO)</li>
-                            <li>Sản phẩm dịch và tóm tắt cuộc họp theo thời gian thực (realtime) cho doanh nghiệp</li>
-                            <li>Sản phẩm AI Agent Core — trợ lý AI hỗ trợ công việc</li>
-                            <li>Sản phẩm đào tạo ngành xây dựng — training theo thời gian thực (realtime) bằng giọng nói</li>
-                        </ul>
-                        <div style="color: var(--text-muted); font-size: 0.82rem; margin-top: 10px; font-style: italic;">Các sản phẩm hướng tới khách hàng thị trường Nhật Bản</div>
+            <div class="tl">
+                <div class="tl-row now reveal">
+                    <div class="tl-when">
+                        2025 — Hiện tại
+                        <span class="badge">Hiện tại</span>
                     </div>
-                </div>
-
-                <div class="exp-entry current">
-                    <div class="exp-dot"></div>
-                    <div class="exp-date">2025 – Hiện tại</div>
-                    <div class="exp-card">
-                        <div class="exp-company">Dự Án "Tự Học Cùng AI"</div>
-                        <div class="exp-role">Đồng Sáng Lập & CTO</div>
-                        <ul class="exp-desc">
-                            <li>Kiến trúc nền tảng đào tạo AI thực chiến — hướng đến quản lý, nhân viên và giáo viên Việt Nam</li>
-                            <li>Sản xuất nội dung đào tạo: từ prompt engineering cơ bản đến ứng dụng AI vào công việc hàng ngày</li>
-                            <li>Xây dựng cộng đồng học tập AI trên Facebook và blog chuyên ngành</li>
-                            <li>Blog: <a href="https://www.tuhoc.ai.vn" target="_blank" style="color: var(--accent-blue); text-decoration: none;">tuhoc.ai.vn</a> | Cộng đồng: <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" style="color: var(--accent-blue); text-decoration: none;">Group Tự Học Cùng AI</a></li>
+                    <div class="tl-item">
+                        <div class="tl-company"><a href="https://miichisoft.com/en/homepage/" target="_blank" rel="noopener">Miichisoft Co., Ltd.</a></div>
+                        <div class="tl-role">Trưởng phòng Solution</div>
+                        <div class="tl-meta">Công ty giải pháp IT · AWS Consulting Partner · ISO 27001 &amp; 9001 · 200+ nhân sự</div>
+                        <ul class="tl-desc">
+                            <li>Thành lập và dẫn dắt team Solution, chuyên triển khai giải pháp AI cho khách hàng doanh nghiệp</li>
+                            <li>Nghiên cứu và ứng dụng Gemini, Claude, GPT vào quy trình tự động hóa nội bộ và cho khách hàng</li>
+                            <li>Tư vấn trực tiếp: phân tích bài toán, thiết kế workflow AI phù hợp cho từng khách</li>
+                            <li>Dẫn dắt xây dựng các sản phẩm hướng tới thị trường Nhật Bản (chi tiết ở phần Giá trị)</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="exp-entry">
-                    <div class="exp-dot"></div>
-                    <div class="exp-date">2024 – 2025</div>
-                    <div class="exp-card">
-                        <div class="exp-company"><a href="https://ace.air-closet.com/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">airCloset Engineering (ACE)</a> - <a href="https://www.air-closet.com/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">airCloset Co., Ltd.</a></div>
-                        <div class="exp-role">BrSE kiêm Team Leader</div>
-                        <div style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 8px; font-style: italic;">Nền tảng cho thuê thời trang hàng đầu | 8M+ người dùng | TypeScript, React, Node.js, NestJS</div>
-                        <ul class="exp-desc">
+                <div class="tl-row now reveal">
+                    <div class="tl-when">2025 — Hiện tại</div>
+                    <div class="tl-item">
+                        <div class="tl-company">Dự án “Tự Học Cùng AI”</div>
+                        <div class="tl-role">Đồng sáng lập &amp; CTO</div>
+                        <ul class="tl-desc">
+                            <li>Kiến trúc nền tảng đào tạo AI thực chiến cho quản lý, nhân viên và giáo viên Việt Nam</li>
+                            <li>Sản xuất nội dung: từ prompt engineering cơ bản đến ứng dụng AI vào công việc hàng ngày</li>
+                            <li>Tổ chức workshop hàng tháng, chia sẻ về AI cho cộng đồng</li>
+                            <li>Coach 1:1, đồng hành ứng dụng AI cá nhân hoá cho từng người</li>
+                            <li>Xây dựng cộng đồng học tập trên Facebook và blog chuyên ngành</li>
+                        </ul>
+                        <div class="tl-links">
+                            <a href="https://www.tuhoc.ai.vn" target="_blank" rel="noopener">tuhoc.ai.vn</a>
+                            &nbsp;·&nbsp;
+                            <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" rel="noopener">Group Tự Học Cùng AI</a>
+                            &nbsp;·&nbsp;
+                            <a href="https://truongcotchinh.com/coach/hoang-van-tuan/" target="_blank" rel="noopener">Đăng ký Coach 1:1</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-row reveal">
+                    <div class="tl-when">2024 — 2025</div>
+                    <div class="tl-item">
+                        <div class="tl-company"><a href="https://ace.air-closet.com/" target="_blank" rel="noopener">airCloset Engineering</a></div>
+                        <div class="tl-role">BrSE kiêm Team Leader</div>
+                        <div class="tl-meta">Nền tảng cho thuê thời trang hàng đầu · 8M+ người dùng · TypeScript, React, NestJS</div>
+                        <ul class="tl-desc">
                             <li>Cầu nối giữa team phát triển tại Hà Nội và đội ngũ product quốc tế</li>
-                            <li>Dẫn dắt team phát triển 3 sản phẩm: airCloset, airCloset Mall, airCloset Spot Rental</li>
+                            <li>Dẫn dắt phát triển 3 sản phẩm: airCloset, airCloset Mall, airCloset Spot Rental</li>
                             <li>Đảm bảo chất lượng release cho hệ thống phục vụ 8 triệu người dùng</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="exp-entry">
-                    <div class="exp-dot"></div>
-                    <div class="exp-date">2019 – 2024</div>
-                    <div class="exp-card">
-                        <div class="exp-company"><a href="https://miichisoft.com/en/homepage/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">Miichisoft Co., Ltd.</a></div>
-                        <div class="exp-role">BrSE → PM → Line Manager → Division Manager</div>
-                        <div style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 8px; font-style: italic;">Top 10 ICT Vietnam 2022 | Sao Khuê 2021–2022 | Giáo dục, Xây dựng, Bán lẻ, Logistics, Bất động sản</div>
-                        <ul class="exp-desc">
-                            <li>Thăng tiến qua 4 cấp quản lý trong 5 năm — từ kỹ sư đến điều hành bộ phận</li>
+                <div class="tl-row reveal">
+                    <div class="tl-when">2019 — 2024</div>
+                    <div class="tl-item">
+                        <div class="tl-company"><a href="https://miichisoft.com/en/homepage/" target="_blank" rel="noopener">Miichisoft Co., Ltd.</a></div>
+                        <div class="tl-role">BrSE → PM → Line Manager → Division Manager</div>
+                        <div class="tl-meta">Top 10 ICT Việt Nam 2022 · Sao Khuê 2021–2022 · Giáo dục, Xây dựng, Bán lẻ, Logistics, Bất động sản</div>
+                        <ul class="tl-desc">
+                            <li>Thăng tiến qua 4 cấp quản lý trong 5 năm, từ kỹ sư đến điều hành bộ phận</li>
                             <li>Trực tiếp quản lý team PM, xây dựng quy trình phát triển phần mềm chuẩn hóa</li>
                             <li>Đào tạo và phát triển nhân sự mới cho bộ phận</li>
-                            <li>Triển khai 30+ dự án đa lĩnh vực: PHP Laravel, Vue.js, React.js, Node.js, AWS, Azure</li>
+                            <li>Triển khai 30+ dự án: PHP Laravel, Vue.js, React.js, Node.js, AWS, Azure</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="exp-entry">
-                    <div class="exp-dot"></div>
-                    <div class="exp-date">2016 – 2019</div>
-                    <div class="exp-card">
-                        <div class="exp-company"><a href="https://mediado.jp/english/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--text-muted);">Media Do Co., Ltd.</a></div>
-                        <div class="exp-role">Kỹ Sư Phần Mềm</div>
-                        <div style="color: var(--text-muted); font-size: 0.82rem; margin-bottom: 8px; font-style: italic;">Nhà phân phối eBook hàng đầu | 2,200+ nhà xuất bản | 150+ nền tảng eBook</div>
-                        <ul class="exp-desc">
+                <div class="tl-row reveal">
+                    <div class="tl-when">2016 — 2019</div>
+                    <div class="tl-item">
+                        <div class="tl-company"><a href="https://mediado.jp/english/" target="_blank" rel="noopener">Media Do Co., Ltd.</a></div>
+                        <div class="tl-role">Kỹ sư phần mềm</div>
+                        <div class="tl-meta">Nhà phân phối eBook hàng đầu · 2.200+ nhà xuất bản · 150+ nền tảng eBook</div>
+                        <ul class="tl-desc">
                             <li>Phát triển phần mềm trong lĩnh vực xuất bản số (Digital Publishing)</li>
-                            <li>Xây dựng hệ thống phân phối nội dung số kết nối nhà xuất bản với các nền tảng eBook</li>
-                            <li>Tích lũy 3 năm kinh nghiệm làm việc trong môi trường công nghệ quốc tế</li>
+                            <li>Xây hệ thống phân phối nội dung số, kết nối nhà xuất bản với các nền tảng eBook</li>
+                            <li>Ba năm làm việc trong môi trường công nghệ quốc tế</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section class="section" id="skills">
-            <div class="reveal">
-                <div class="section-label">Chuyên môn</div>
-                <h2 class="section-title">Những gì tôi làm tốt nhất</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon blue">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        </div>
-                        <h4>Quản Lý & Lãnh Đạo</h4>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Team Building</span>
-                        <span class="skill-tag">Line Management</span>
-                        <span class="skill-tag">Division Management</span>
-                        <span class="skill-tag">Agile/Scrum</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon cyan">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                        </div>
-                        <h4>Kỹ Thuật & Công Nghệ</h4>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Software Engineering</span>
-                        <span class="skill-tag">AI Solutions</span>
-                        <span class="skill-tag">System Design</span>
-                        <span class="skill-tag">Solution Architecture</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon amber">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h4>Tư Vấn & Giao Tiếp</h4>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Client Communication</span>
-                        <span class="skill-tag">Requirement Analysis</span>
-                        <span class="skill-tag">Solution Consulting</span>
-                        <span class="skill-tag">Cross-team Collaboration</span>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon green">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9c0 3.88-3.13 7.13-5.5 9.5L12 24l-3.5-3.5C6.13 18.13 3 14.88 3 11a9 9 0 0 1 9-9z"/><circle cx="12" cy="11" r="3"/></svg>
-                        </div>
-                        <h4>Ứng Dụng AI & Công Cụ</h4>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Google AI (Gemini)</span>
-                        <span class="skill-tag">Claude (Anthropic)</span>
-                        <span class="skill-tag">AI Workflow Automation</span>
-                        <span class="skill-tag">Product Development</span>
-                    </div>
+    <!-- VALUE -->
+    <section class="band" id="value">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <span class="sec-index">03</span>
+                <div>
+                    <div class="eyebrow">Giá trị</div>
+                    <h2 class="sec-title">Tôi đã làm gì,<br>và có thể giúp gì cho bạn</h2>
                 </div>
             </div>
-        </section>
 
-        <!-- Info Section -->
-        <section class="info-section" id="contact">
-            <div class="reveal">
-                <div class="section-label">Kết nối</div>
-                <h2 class="section-title">Liên hệ với tôi</h2>
-            </div>
-            <div class="info-grid">
-                <!-- Contact -->
-                <div class="info-card">
-                    <div class="info-card-title">Liên Hệ</div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        0393 041 293
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        hoangtuanbka93@gmail.com
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        Hà Nội, Việt Nam
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                        <a href="https://www.tuhoc.ai.vn" target="_blank">tuhoc.ai.vn</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-                        <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank">Group Tự Học Cùng AI</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.93 3.78-3.93 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 008.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
-                        <a href="https://www.facebook.com/hoangvantuan93" target="_blank">Facebook cá nhân</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                        <a href="http://hoangvantuan.com/" target="_blank">hoangvantuan.com</a>
-                    </div>
+            <p class="value-intro reveal r1">
+                Một bên là những sản phẩm tôi đã trực tiếp bắt tay xây. Một bên là những việc tôi có thể làm cùng bạn.
+            </p>
+
+            <div class="value-split reveal r2">
+                <div class="vcol vcol-done">
+                    <div class="vcol-tag"><span class="sq"></span> Đã làm</div>
+                    <h3>Sản phẩm thực tế</h3>
+                    <p class="vcol-note">Ở vai trò Trưởng phòng Solution tại Miichisoft, tôi lập và dẫn dắt team xây các sản phẩm sau cho thị trường Nhật Bản.</p>
+                    <ul class="done-list">
+                        <li class="done-item">
+                            <h4>Dịch &amp; tóm tắt cuộc họp theo thời gian thực</h4>
+                            <p>Dịch và tóm tắt ngay trong cuộc họp, để người hai bên hiểu nhau mà không cần chờ.</p>
+                        </li>
+                        <li class="done-item">
+                            <h4>AI Agent Core</h4>
+                            <p>Trợ lý AI hỗ trợ công việc, làm nền cho các bài toán tự động hóa theo yêu cầu.</p>
+                        </li>
+                        <li class="done-item">
+                            <h4>Đào tạo ngành xây dựng bằng giọng nói</h4>
+                            <p>Sản phẩm huấn luyện theo thời gian thực bằng giọng nói cho lĩnh vực xây dựng.</p>
+                        </li>
+                        <li class="done-item">
+                            <h4>AI Co-Creation &amp; AI+ Solutions</h4>
+                            <p>Meet AI+, AIDO, các bản GenAI PoC trên Dify: đưa ý tưởng AI từ thử nghiệm đến sản phẩm.</p>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Languages & Cert -->
-                <div class="info-card">
-                    <div class="info-card-title">Ngôn Ngữ</div>
-                    <div class="lang-item">
-                        <div class="lang-header">
-                            <span class="lang-name">Tiếng Việt</span>
-                            <span class="lang-level">Bản ngữ</span>
-                        </div>
-                        <div class="lang-bar">
-                            <div class="lang-bar-fill" style="--target-width: 100%" data-width="100"></div>
-                        </div>
-                    </div>
-                    <div class="lang-item">
-                        <div class="lang-header">
-                            <span class="lang-name">Tiếng Nhật</span>
-                            <span class="lang-level">N2+ – Kinh doanh</span>
-                        </div>
-                        <div class="lang-bar">
-                            <div class="lang-bar-fill" style="--target-width: 85%" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="lang-item">
-                        <div class="lang-header">
-                            <span class="lang-name">Tiếng Anh</span>
-                            <span class="lang-level">Giao tiếp công việc</span>
-                        </div>
-                        <div class="lang-bar">
-                            <div class="lang-bar-fill" style="--target-width: 60%" data-width="60"></div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 28px;">
-                        <div class="info-card-title">Chứng Chỉ</div>
-                        <div class="cert-badge">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                            <span class="cert-badge-name">JLPT N2</span>
-                        </div>
-                        <div class="cert-badge-desc">Tiếng Nhật cấp độ kinh doanh</div>
-                    </div>
-                </div>
-
-                <!-- Education -->
-                <div class="info-card">
-                    <div class="info-card-title">Học Vấn</div>
-                    <div class="edu-item">
-                        <div class="edu-period">2011 – 2016</div>
-                        <div class="edu-school">ĐH Bách Khoa Hà Nội</div>
-                        <div class="edu-program">Chương trình HEDSPI<br>Công nghệ Thông tin & Tiếng Nhật – Hợp tác Việt Nam & Nhật Bản</div>
-                    </div>
+                <div class="vcol vcol-offer">
+                    <div class="vcol-tag"><span class="sq hollow"></span> Có thể giúp bạn</div>
+                    <h3>Cùng bạn giải bài toán</h3>
+                    <p class="vcol-note">Mỗi bài toán một khác. Tôi thích ngồi lại xem việc của bạn trước, rồi mới bàn cách làm.</p>
+                    <ul class="offer-list">
+                        <li class="offer-item">
+                            <span class="offer-idx">i.</span>
+                            <div>
+                                <h4>Tư vấn &amp; thiết kế giải pháp AI cho bài toán cụ thể</h4>
+                                <p>Từ phân tích nhu cầu, dựng PoC, đến đưa vào vận hành thật.</p>
+                                <span class="proof">Đã làm cho khách doanh nghiệp ở Miichisoft</span>
+                            </div>
+                        </li>
+                        <li class="offer-item">
+                            <span class="offer-idx">ii.</span>
+                            <div>
+                                <h4>Tự động hóa việc lặp, để đội rảnh tay cho việc quan trọng hơn</h4>
+                                <p>Thiết kế workflow AI gọn, khớp với quy trình sẵn có của bạn.</p>
+                                <span class="proof">Mười năm làm kỹ sư và quản lý hơn 50 người</span>
+                            </div>
+                        </li>
+                        <li class="offer-item">
+                            <span class="offer-idx">iii.</span>
+                            <div>
+                                <h4>Đào tạo AI thực chiến cho cá nhân và đội ngũ</h4>
+                                <p>Từ workshop cho cả nhóm đến coach 1:1 kèm sát từng người. Học xong về là áp được vào việc hàng ngày.</p>
+                                <span class="proof">Đồng sáng lập nền tảng Tự Học Cùng AI</span>
+                                <a href="https://truongcotchinh.com/coach/hoang-van-tuan/" target="_blank" rel="noopener" class="offer-cta">Đăng ký Coach 1:1 <span class="arrow">→</span></a>
+                            </div>
+                        </li>
+                        <li class="offer-item">
+                            <span class="offer-idx">iv.</span>
+                            <div>
+                                <h4>Làm cầu nối giữa kỹ thuật, nghiệp vụ và văn hóa</h4>
+                                <p>Để team kỹ thuật và khách hàng, kể cả đối tác Nhật, thật sự hiểu nhau.</p>
+                                <span class="proof">BrSE nhiều năm, tiếng Nhật N2, học HEDSPI Bách Khoa</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </section>
 
-    </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="wrap">
+            <div class="contact-grid">
+                <div class="contact-left reveal">
+                    <div class="eyebrow">Kết nối</div>
+                    <h2 class="contact-head">Có một bài toán,<br>hay chỉ muốn <em>trò chuyện</em>?</h2>
+                    <p class="contact-copy">
+                        Bạn là doanh nghiệp cần giải pháp AI, người muốn học AI, hay đối tác muốn cùng làm gì đó? Cứ nhắn cho tôi một dòng. Tôi luôn đọc và trả lời.
+                    </p>
+                    <div class="contact-actions">
+                        <a href="mailto:hoangtuanbka93@gmail.com" class="btn btn-primary">Gửi email <span class="arrow">→</span></a>
+                        <a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" rel="noopener" class="btn btn-ghost">Tham gia cộng đồng</a>
+                    </div>
+                </div>
+
+                <div class="contact-card reveal r1">
+                    <ul class="contact-list">
+                        <li><span class="ci-label">Điện thoại</span><a href="tel:0393041293">0393 041 293</a></li>
+                        <li><span class="ci-label">Email</span><a href="mailto:hoangtuanbka93@gmail.com">hoangtuanbka93@gmail.com</a></li>
+                        <li><span class="ci-label">Nơi ở</span><span class="ci-val">Hà Nội, Việt Nam</span></li>
+                        <li><span class="ci-label">Blog</span><a href="https://www.tuhoc.ai.vn" target="_blank" rel="noopener">tuhoc.ai.vn</a></li>
+                        <li><span class="ci-label">Cộng đồng</span><a href="https://www.facebook.com/groups/tuhoccungai" target="_blank" rel="noopener">Group Tự Học Cùng AI</a></li>
+                        <li><span class="ci-label">Facebook</span><a href="https://www.facebook.com/hoangvantuan93" target="_blank" rel="noopener">Facebook cá nhân</a></li>
+                        <li><span class="ci-label">Website</span><a href="http://hoangvantuan.com/" target="_blank" rel="noopener">hoangvantuan.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="meta-grid reveal r1">
+                <div class="meta-cell">
+                    <h4>Ngôn ngữ</h4>
+                    <div class="lang-row">
+                        <div class="lang-top"><span class="lang-name">Tiếng Việt</span><span class="lang-lvl">Bản ngữ</span></div>
+                        <div class="lang-track"><div class="lang-fill" data-w="100"></div></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-top"><span class="lang-name">Tiếng Nhật</span><span class="lang-lvl">N2+ · Kinh doanh</span></div>
+                        <div class="lang-track"><div class="lang-fill" data-w="85"></div></div>
+                    </div>
+                    <div class="lang-row">
+                        <div class="lang-top"><span class="lang-name">Tiếng Anh</span><span class="lang-lvl">Giao tiếp công việc</span></div>
+                        <div class="lang-track"><div class="lang-fill" data-w="60"></div></div>
+                    </div>
+                </div>
+
+                <div class="meta-cell">
+                    <h4>Chứng chỉ</h4>
+                    <div class="cert" style="margin-top:0;padding-top:0;border-top:none;">
+                        <span class="seal">N2</span>
+                        <div>
+                            <div class="cert-name">JLPT N2</div>
+                            <div class="cert-desc">Tiếng Nhật cấp độ kinh doanh</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meta-cell">
+                    <h4>Học vấn</h4>
+                    <div class="edu-period">2011 — 2016</div>
+                    <div class="edu-school">ĐH Bách Khoa Hà Nội</div>
+                    <div class="edu-prog">Chương trình HEDSPI · Công nghệ thông tin &amp; tiếng Nhật, hợp tác Việt Nam và Nhật Bản</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-text">Hoàng Văn Tuấn – Cập nhật tháng 03/2026 | Hà Nội, Việt Nam</div>
-        <div class="footer-links">
-            <a href="https://www.tuhoc.ai.vn" target="_blank">tuhoc.ai.vn</a>
-            <a href="https://www.facebook.com/hoangvantuan93" target="_blank">Facebook</a>
-            <a href="mailto:hoangtuanbka93@gmail.com">Email</a>
+        <div class="footer-inner">
+            <div class="footer-text">Hoàng Văn Tuấn · Cập nhật 03/2026 · Hà Nội, Việt Nam</div>
+            <div class="footer-links">
+                <a href="https://www.tuhoc.ai.vn" target="_blank" rel="noopener">tuhoc.ai.vn</a>
+                <a href="https://www.facebook.com/hoangvantuan93" target="_blank" rel="noopener">Facebook</a>
+                <a href="mailto:hoangtuanbka93@gmail.com">Email</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // ==================== INTERSECTION OBSERVER ====================
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-
-                    // Animate language bars
-                    const langBars = entry.target.querySelectorAll('.lang-bar-fill');
-                    langBars.forEach(bar => {
-                        const width = bar.dataset.width;
-                        setTimeout(() => {
-                            bar.style.transform = `scaleX(${width / 100})`;
-                            bar.classList.add('animate');
-                        }, 300);
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    // language bars
+                    e.target.querySelectorAll('.lang-fill').forEach(f => {
+                        f.style.transform = 'scaleX(' + (f.dataset.w / 100) + ')';
                     });
-
-                    observer.unobserve(entry.target);
+                    io.unobserve(e.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
 
-        // Observe reveal elements
-        document.querySelectorAll('.reveal, .exp-entry, .skill-card, .info-card').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-        // ==================== ANIMATED COUNTERS ====================
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('[data-count]');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.dataset.count);
-                        const duration = 2000;
-                        const start = performance.now();
-
-                        function updateCounter(now) {
-                            const elapsed = now - start;
-                            const progress = Math.min(elapsed / duration, 1);
-                            // Ease out cubic
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            const current = Math.round(eased * target);
-                            counter.textContent = current + '+';
-                            if (progress < 1) {
-                                requestAnimationFrame(updateCounter);
-                            }
-                        }
-                        requestAnimationFrame(updateCounter);
-                    });
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) counterObserver.observe(heroStats);
-
-        // ==================== NAV SCROLL ====================
+        // Nav background on scroll
         const nav = document.getElementById('nav');
-        let lastScroll = 0;
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 80) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-            lastScroll = currentScroll;
-        }, { passive: true });
-
-        // ==================== SMOOTH SCROLL ====================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+        // Smooth anchor scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (ev) {
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) { ev.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
     </script>
